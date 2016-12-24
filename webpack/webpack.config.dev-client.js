@@ -23,7 +23,7 @@ var commonLoaders = [
     exclude: path.join(__dirname, '..', 'node_modules')
   },
   {
-    test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+    test: /\.(png|jpg|jpeg|gif|svg|woff|mp4|woff2)$/,
     loader: 'url',
     query: {
         name: '[hash].[ext]',

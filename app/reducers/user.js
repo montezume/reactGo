@@ -13,6 +13,30 @@ const isLogin = (
   }
 };
 
+const userAgent = (
+  state = '',
+  action
+) => {
+  switch (action.type) {
+    case types.SET_USER_AGENT:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const locale = (
+  state = 'fr',
+  action
+) => {
+  switch (action.type) {
+    case types.SET_USER_LANGUAGE:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const message = (
   state = '',
   action
@@ -76,7 +100,9 @@ const userReducer = combineReducers({
   isLogin,
   isWaiting,
   authenticated,
-  message
+  locale,
+  message,
+  userAgent
 });
 
 export default userReducer;

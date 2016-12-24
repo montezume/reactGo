@@ -1,5 +1,6 @@
 import { polyfill } from 'es6-promise';
 import request from 'axios';
+import cookie from 'react-cookie';
 import { push } from 'react-router-redux';
 
 import * as types from 'types';
@@ -29,6 +30,21 @@ export function loginError(message) {
   return {
     type: types.LOGIN_ERROR_USER,
     message
+  };
+}
+
+export function setUserAgent(userAgent) {
+  return {
+    type: types.SET_USER_AGENT,
+    payload: userAgent
+  };
+}
+
+export function setUserLanguage(language) {
+  cookie.save('locale', language);
+  return {
+    type: types.SET_USER_LANGUAGE,
+    payload: language
   };
 }
 

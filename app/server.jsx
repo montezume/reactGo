@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import cookie from 'react-cookie';
 import { createMemoryHistory, match } from 'react-router';
 import createRoutes from 'routes';
 import configureStore from 'store/configureStore';
@@ -7,8 +8,8 @@ import * as types from 'types';
 import preRenderMiddleware from 'middlewares/preRenderMiddleware';
 import { host, port } from 'config/app';
 import pageRenderer from 'utils/pageRenderer';
-
-
+import { setUserAgent, setUserLanguage } from 'actions/users';
+import { loadIntlMessages, setCurrentLocale } from 'actions/intl';
 
 // configure baseURL for axios requests (for serverside API calls)
 axios.defaults.baseURL = `http://${host}:${port}`;
@@ -21,6 +22,9 @@ axios.defaults.baseURL = `http://${host}:${port}`;
 export default function render(req, res) {
   const authenticated = req.isAuthenticated();
   const history = createMemoryHistory();
+  // const unplug = plugToRequest(req, res);
+  cookie.setRawCookie(req.headers.cookie);
+  // console.log(unplug);
   const store = configureStore({
     user: {
       authenticated,
@@ -30,6 +34,21 @@ export default function render(req, res) {
     }
   }, history);
   const routes = createRoutes(store);
+  const savedLocale = cookie.load('locale');
+
+  if (savedLocale) {
+    store.dispatch(setUserLanguage(savedLocale));
+  } else {
+    const langs = req.acceptsLanguages();
+    if (langs[0].toLowerCase().includes('fr')) {
+      console.log('french');
+      store.dispatch(setUserLanguage('fr'));
+    } else {
+      store.dispatch(setUserLanguage('en'));
+    }
+  }
+  store.dispatch(setUserAgent(req.headers['user-agent']));
+  store.dispatch(loadIntlMessages());
 
   /*
    * From the react-router docs:
@@ -67,6 +86,16 @@ export default function render(req, res) {
           store.dispatch({ type: returningCall.type, data: returningCall.data});
         });
         store.dispatch({ type: types.FETCH_DATA_SUCCESS, data });
+
+        if (!global.Intl) {
+          require.ensure([
+              'intl',
+              'intl/locale-data/jsonp/en.js'
+          ], (require) => {
+            require('intl');
+            require('intl/locale-data/jsonp/en');
+          });
+        }
         const html = pageRenderer(store, props);
         res.status(200).send(html);
       })

@@ -1,34 +1,32 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logOut } from 'actions/users';
-
 import classNames from 'classnames/bind';
-import styles from 'css/components/navigation';
+import { setUserLanguage } from '../actions/users';
+import styles from '../css/components/navigation';
 
 const cx = classNames.bind(styles);
 
-const Navigation = ({ user, logOut }) => {
+const Navigation = ({ user, setUserLanguage }) => {
+  const currentLocale = user.locale;
+  const nextLocale = currentLocale === 'en' ? 'fr' : 'en';
     return (
       <nav className={cx('navigation')} role="navigation">
-        <Link to="/"
-          className={cx('item', 'logo')}
-          activeClassName={cx('active')}>Ninja Ocean</Link>
-          { user.authenticated ? (
-            <Link onClick={logOut}
-              className={cx('item')} to="/">Logout</Link>
-          ) : (
-            <Link className={cx('item')} to="/login">Log in</Link>
-          )}
-          <Link className={cx('item')} to="/dashboard">Dashboard</Link>
-          <Link to="/about" className={cx('item')} activeClassName={cx('active')}>About</Link>
+        <button className={cx('change-language', 'right')} onClick={() => setUserLanguage(nextLocale)}>
+          <div className={cx('svg-wrapper')}>
+            <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
+              <line className={cx('shape')} x1="0" y1="60" x2="60" y2="60" />
+            </svg>
+            <div className={cx('text')}>{nextLocale}</div>
+          </div>
+        </button>
       </nav>
     );
 };
 
 Navigation.propTypes = {
   user: PropTypes.object,
-  logOut: PropTypes.func.isRequired
+  setUserLanguage: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -37,4 +35,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { logOut })(Navigation);
+export default connect(mapStateToProps, { setUserLanguage })(Navigation);

@@ -3,8 +3,19 @@
 
 .navigation {
   padding: 0 28px;
+  position: absolute;
+  z-index: 99;
+  height: 50px;
+  width: 100%;
 }
 
+.navigation .right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  padding-right: 28px;
+}
 .item {
   display: inline-block;
   text-decoration: none;
@@ -18,4 +29,51 @@
 
 .active {
   color: var(--colorDodgerBlue);
+}
+
+.svg-wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 60px;
+}
+
+.shape {
+  stroke-dasharray: 0 60;
+  stroke-dashoffset: -30;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: var(--colorTeal);
+  border-bottom: 5px solid white;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+.text {
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  line-height: 32px;
+  color: #fff;
+  top: -48px;
+  position: relative;
+}
+.svg-wrapper:hover .shape {
+  stroke-dasharray: 60 60;
+  stroke-dashoffset: 0;
+
+}
+
+button.change-language {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.4s ease;
+}
+
+button.change-language:hover {
+  color: var(--colorTeal);
+  transition: color 0.4s ease;
+}
+
+button.change-language:focus {
+  outline: none;
 }

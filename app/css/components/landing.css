@@ -1,0 +1,56 @@
+@import url('../common/colors');
+
+.landing {
+
+}
+
+.landing .video-hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: var(--colorWhite);
+}
+.landing h1 span.leader {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  display: block;
+}
+.landing h1 {
+  font-size: 3rem;
+  color: var(--colorWhite);
+  font-weight: lighter;
+}
+
+.landing .down-arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 3rem;
+  transition: margin 0.4s ease;
+  cursor: pointer;
+}
+
+.landing .down-arrow:hover {
+  margin-bottom: 2.5rem;
+  transition: margin 0.4s ease;
+}
+
+.landing .down-arrow svg:hover {
+  stroke: var(--colorTeal);
+  transition: stroke 0.4s ease;
+}
+
+.landing .down-arrow svg {
+  stroke: var(--colorWhite);
+  transition: stroke 0.4s ease;
+}
+
+.landing .intro {
+  margin-top: 2rem;
+  /*min-height: 1000px;*/
+}
+
+.landing .intro .paper {
+  padding: 1rem;
+}

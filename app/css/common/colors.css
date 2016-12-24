@@ -14,4 +14,5 @@
   --colorCrimson:             #ed193a;
   --colorDarkerCrimson:       color(var(--colorCrimson) blackness(+20%));
 
+  --colorTeal:                #008080;
 }

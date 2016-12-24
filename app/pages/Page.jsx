@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
-const Page = ({ title, link, meta, children }) => {
+const Page = ({ title, link, meta, htmlAttributes, children }) => {
   return (
     <div>
-      <Helmet title={title} link={link} meta={meta} />
+      <Helmet htmlAttributes={htmlAttributes} title={title} link={link} meta={meta} />
       { children }
     </div>
   );
@@ -17,4 +17,3 @@ Page.propTypes = {
 };
 
 export default Page;
-

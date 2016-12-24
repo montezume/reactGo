@@ -28,7 +28,7 @@ module.exports = {
     },
     { test: /\.json$/, loader: 'json-loader' },
     {
-      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+      test: /\.(png|jpg|jpeg|gif|svg|woff|mp4|woff2)$/,
       loader: 'url',
       query: {
         name: '[hash].[ext]',

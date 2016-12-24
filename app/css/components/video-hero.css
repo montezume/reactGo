@@ -1,0 +1,73 @@
+@import url('../common/colors');
+@import url('../common/typography');
+
+.video {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  overflow: hidden;
+
+  .clip-text {
+    opacity: 0;
+    transition: 0.5s all ease-out;
+    p {
+      padding: 1em 2em;
+      text-align: left;
+      @media(min-width:800px) {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+  }
+  &:hover {
+    .clip-text {
+      opacity: 1;
+      transition: 0.5s all ease-in;
+    }
+  }
+}
+
+.no-video-ctn {
+  z-index: 99;
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.vid-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  /*background-image: url('../../images/texture2.png');*/
+  width: 100%;
+  height: 100%;
+}
+
+.video video {
+  min-width: 100%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  @media(max-width: 600px) {
+    width: inherit;
+    height: 100%;
+  }
+
+}
