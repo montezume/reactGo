@@ -31,10 +31,16 @@ function onUpdate() {
     return;
   }
 
-  store.dispatch({ type: types.CREATE_REQUEST });
-  preRenderMiddleware(this.state)
+  store.dispatch({ type: types.FETCH_DATA_REQUEST });
+  preRenderMiddleware(store.dispatch, this.state)
   .then(data => {
-    return store.dispatch({ type: types.REQUEST_SUCCESS, data });
+    data.forEach(returningCall => {
+      store.dispatch({ type: returningCall.type, data: returningCall.data});
+    });
+    return store.dispatch({ type: types.FETCH_DATA_SUCCESS, data });
+  })
+  .catch(error => {
+    return store.dispatch({ type: types.FETCH_DATA_FAILURE, data: error});
   });
 }
 
