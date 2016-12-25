@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var styleLintPlugin = require('stylelint-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
 var assetsPath = require('./common.config').assetsPath;
 var publicPath = require('./common.config').publicPath;
@@ -101,6 +102,14 @@ module.exports = {
           __DEVCLIENT__: true,
           __DEVSERVER__: false
         }),
+        new webpack.DefinePlugin({
+          'process.env': {
+               'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+           }
+        }),
+        new CopyWebpackPlugin([
+          { from: './static' }
+        ]),
         new styleLintPlugin({
           configFile: path.join(__dirname, '..', '.stylelintrc'),
           context: path.join(__dirname, '..', 'app'),

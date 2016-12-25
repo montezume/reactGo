@@ -1,0 +1,24 @@
+@import url('../common/colors');
+
+.testimonial {
+  padding: 2em 0;
+  background-color: var(--colorWhite);
+}
+
+.testimonial .user-image .user-icon {
+  display: relative;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
+  background-size: contain;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+}
+
+.testimonial .user-image span {
+  display: block;
+  font-size: 1.5rem;
+  padding-bottom: 1em;
+  text-align: center;
+}

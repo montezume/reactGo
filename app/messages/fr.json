@@ -1,4 +1,9 @@
 {
+  "site.title": "Mercredi c'est quand?",
+  "site.description": "Une site web pour vous aidez à déterminer le prochain mercredi.",
   "landing.header.leader": "Êtes vous tanner de manquer le karaoke à cause d'une confusion de dates?",
-  "landing.header.title": "Mercredi est quand?"
+  "landing.header.title": "Mercredi est quand?",
+  "landing.date.title": "Choissez votre date",
+  "landing.date.phrase": "Le prochain mercredi est",
+  "landing.testimonials.title": "Recommandation"
 }

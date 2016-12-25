@@ -20,17 +20,13 @@ axios.defaults.baseURL = `http://${host}:${port}`;
  * and pass it into the Router.run function.
  */
 export default function render(req, res) {
-  const authenticated = req.isAuthenticated();
+  // const authenticated = req.isAuthenticated();
   const history = createMemoryHistory();
   // const unplug = plugToRequest(req, res);
   cookie.setRawCookie(req.headers.cookie);
   // console.log(unplug);
   const store = configureStore({
     user: {
-      authenticated,
-      isWaiting: false,
-      message: '',
-      isLogin: true
     }
   }, history);
   const routes = createRoutes(store);
@@ -41,7 +37,6 @@ export default function render(req, res) {
   } else {
     const langs = req.acceptsLanguages();
     if (langs[0].toLowerCase().includes('fr')) {
-      console.log('french');
       store.dispatch(setUserLanguage('fr'));
     } else {
       store.dispatch(setUserLanguage('en'));
@@ -90,14 +85,20 @@ export default function render(req, res) {
         if (!global.Intl) {
           require.ensure([
               'intl',
-              'intl/locale-data/jsonp/en.js'
+              'intl/locale-data/jsonp/en',
+              'intl/locale-data/jsonp/fr'
           ], (require) => {
             require('intl');
             require('intl/locale-data/jsonp/en');
+            require('intl/locale-data/jsonp/fr');
+
+            const html = pageRenderer(store, props);
+            res.status(200).send(html);
           });
+        } else {
+          const html = pageRenderer(store, props);
+          res.status(200).send(html);
         }
-        const html = pageRenderer(store, props);
-        res.status(200).send(html);
       })
       .catch(err => {
         console.error(err);

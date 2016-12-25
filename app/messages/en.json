@@ -1,4 +1,9 @@
 {
+  "site.title": "When is Wednesday?",
+  "site.description": "A handy web app to determine when the next Wednesday is.",
   "landing.header.leader": "Are you sick of showing up to karaoke on the wrong day?",
-  "landing.header.title": "When is Wednesday?"
+  "landing.header.title": "When is Wednesday?",
+  "landing.date.title": "Select your date",
+  "landing.date.phrase": "The next wednesday is",
+  "landing.testimonials.title": "Testimonials"
 }

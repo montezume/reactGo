@@ -1,0 +1,83 @@
+@import '../common/colors';
+@import '../common/typography';
+
+.footer {
+  background-position-x: 100%;
+  color: var(--colorWhite);
+  height: 100%;
+  position: relative;
+  z-index: 3;
+
+  &:before {
+    z-index: -3;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-position-y: 100%;
+    background-color: black;
+    background-size: cover;
+  }
+
+  @media only screen and (min-width: 992px) {
+    position: fixed;
+    z-index: 0;
+    height: 200px;
+    width: 100%;
+    bottom: 0;
+
+  }
+}
+
+span.footer-subheader {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+li a {
+  color: var(--colorWhite);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: var(--colorTeal);
+  }
+}
+
+.footer h4 {
+  text-transform: uppercase;
+  font-size: 2.3rem;
+  font-weight: lighter;
+  margin: 0;
+  text-align: center;
+  @media only screen and (min-width: 768px) {
+    text-align: right;
+  }
+}
+
+.warning-text-box {
+  margin-top: 2rem;
+}
+.warning-text-box p {
+  text-align: center;
+  margin-top: 0;
+  line-height: 1.75rem;
+  @media only screen and (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+.logo svg:hover {
+  stroke: var(--colorTeal);
+  transition: stroke 0.4s ease;
+}
+
+.logo svg {
+  stroke: var(--colorWhite);
+  cursor: pointer;
+  transition: stroke 0.4s ease;
+}

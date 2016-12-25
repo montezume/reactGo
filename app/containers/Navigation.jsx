@@ -12,6 +12,12 @@ const Navigation = ({ user, setUserLanguage }) => {
   const nextLocale = currentLocale === 'en' ? 'fr' : 'en';
     return (
       <nav className={cx('navigation')} role="navigation">
+        <div className={cx('logo-svg')}>
+          <svg height="40" width="40">
+            <polyline points="0,15 15,30 30,15" strokeWidth="3" fill="none" />
+            <polyline points="10,15 25,30 40,15" strokeWidth="3" fill="none" />
+          </svg>
+        </div>
         <button className={cx('change-language', 'right')} onClick={() => setUserLanguage(nextLocale)}>
           <div className={cx('svg-wrapper')}>
             <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">

@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var InlineEnviromentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
-
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var commonLoaders = require('./common.config').commonLoaders;
 var assetsPath = require('./common.config').assetsPath;
 var publicPath = require('./common.config').publicPath;
@@ -119,6 +119,14 @@ module.exports = [
             warnings: false
           }
         }),
+        new webpack.DefinePlugin({
+          'process.env': {
+               'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+           }
+        }),
+        new CopyWebpackPlugin([
+          { from: './static' }
+        ]),
         new webpack.DefinePlugin({
           __DEVCLIENT__: false,
           __DEVSERVER__: false

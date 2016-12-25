@@ -44,12 +44,29 @@ function onUpdate() {
   });
 }
 
-
 // Router converts <Route> element hierarchy to a route config:
 // Read more https://github.com/rackt/react-router/blob/latest/docs/Glossary.md#routeconfig
-render(
-  <Provider store={store}>
-    <Router history={history} onUpdate={onUpdate}>
-      {routes}
-    </Router>
-  </Provider>, document.getElementById('app'));
+function renderApp() {
+  render(
+    <Provider store={store}>
+      <Router history={history} onUpdate={onUpdate}>
+        {routes}
+      </Router>
+    </Provider>, document.getElementById('app'));
+}
+
+if (!window.Intl) {
+  require.ensure([
+    'intl',
+    'intl/locale-data/jsonp/en',
+    'intl/locale-data/jsonp/fr'
+  ], (require) => {
+    require('intl');
+    require('intl/locale-data/jsonp/en');
+    require('intl/locale-data/jsonp/fr');
+
+    renderApp();
+  });
+} else {
+  renderApp();
+}

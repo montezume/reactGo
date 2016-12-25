@@ -18,25 +18,6 @@
   width: 100%;
   z-index: 2;
   overflow: hidden;
-
-  .clip-text {
-    opacity: 0;
-    transition: 0.5s all ease-out;
-    p {
-      padding: 1em 2em;
-      text-align: left;
-      @media(min-width:800px) {
-        width: 80%;
-        margin: 0 auto;
-      }
-    }
-  }
-  &:hover {
-    .clip-text {
-      opacity: 1;
-      transition: 0.5s all ease-in;
-    }
-  }
 }
 
 .no-video-ctn {

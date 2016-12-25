@@ -1,16 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Page from 'pages/Page';
 import LandingContainer from 'containers/Landing';
+import { injectIntl, intlShape } from 'react-intl';
 
 class Landing extends Component {
-  render() {
-    return (
-      <Page {...this.getMetaData()}>
-        <LandingContainer {...this.props} />
-      </Page>
-    );
-  }
-
   getMetaData() {
     return {
       title: this.pageTitle(),
@@ -20,18 +13,32 @@ class Landing extends Component {
   }
 
   pageTitle() {
-    return 'Home | When Is?';
+    const { messages } = this.props.intl;
+    return messages['site.title'];
   }
 
   pageMeta() {
+    const { messages } = this.props.intl;
     return [
-      { name: "description", content: "Bleh" }
+      { name: 'description', content: messages['site.description'] }
     ];
   }
 
   pageLink() {
     return [];
   }
+
+  render() {
+    return (
+      <Page {...this.getMetaData()}>
+        <LandingContainer {...this.props} />
+      </Page>
+    );
+  }
 }
 
-export default Landing;
+Landing.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(Landing);

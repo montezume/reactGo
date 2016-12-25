@@ -38,6 +38,11 @@ module.exports = {
           __DEVCLIENT__: false,
           __DEVSERVER__: true
         }),
+        new webpack.DefinePlugin({
+          'process.env': {
+               'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+           }
+        }),
         new webpack.IgnorePlugin(/vertx/)
     ]
 };

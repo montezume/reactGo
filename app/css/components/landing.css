@@ -1,4 +1,5 @@
 @import url('../common/colors');
+@import url('../common/layout');
 
 .landing {
 
@@ -10,15 +11,37 @@
   height: 100%;
   color: var(--colorWhite);
 }
+
 .landing h1 span.leader {
   font-size: 1.5rem;
   margin-bottom: 3rem;
   display: block;
+  font-weight: 200;
+
+  @media(min-width:1000px) {
+    font-size: 2rem;
+  }
+
 }
+
+.landing h2 {
+  font-weight: normal;
+  font-size: 2.5rem;
+
+  @media(min-width:1000px) {
+    font-size: 3rem;
+  }
+
+}
+
 .landing h1 {
   font-size: 3rem;
   color: var(--colorWhite);
   font-weight: lighter;
+
+  @media(min-width:1000px) {
+    font-size: 5rem;
+  }
 }
 
 .landing .down-arrow {
@@ -47,10 +70,25 @@
 }
 
 .landing .intro {
-  margin-top: 2rem;
+  background: white;
+  width: 100%;
   /*min-height: 1000px;*/
 }
 
-.landing .intro .paper {
-  padding: 1rem;
+.landing .section {
+  @apply --box;
+  margin-top: 1em;
+  background-color: var(--colorWhite);
+}
+
+.landing .section .paper {
+  @apply --box;
+}
+
+.landing .section h2 {
+  text-align: center;
+}
+
+.landing .section h2 span {
+  border-bottom: 3px solid var(--colorBlack);
 }

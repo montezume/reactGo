@@ -2,13 +2,21 @@
 @import 'common/layout';
 @import 'common/typography';
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,400,700|Open+Sans);
 
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  font-family: var(--fontOpenSans);
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--fontRoboto);
 }
 
@@ -18,6 +26,14 @@ body {
   font-smoothing: antialiased;
 }
 
+
+.footer-over {
+  @media only screen and (min-width: 992px) {
+    position: relative;
+    margin-bottom: 200px;
+    z-index: 10;
+  }
+}
 
 /* Add your global styles below... */
 

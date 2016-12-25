@@ -47,9 +47,7 @@
   transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }
 .text {
-  font-family: 'Roboto Condensed';
   font-size: 22px;
-  line-height: 32px;
   color: #fff;
   top: -48px;
   position: relative;
@@ -57,7 +55,18 @@
 .svg-wrapper:hover .shape {
   stroke-dasharray: 60 60;
   stroke-dashoffset: 0;
+}
 
+.logo-svg svg:hover {
+  stroke: var(--colorTeal);
+  transition: stroke 0.4s ease;
+}
+
+.logo-svg svg {
+  bottom: 0;
+  position: absolute;
+  stroke: var(--colorWhite);
+  transition: stroke 0.4s ease;
 }
 
 button.change-language {
