@@ -21,7 +21,12 @@ class DateSelector extends Component {
 
   determineNextWednesday(date) {
     const d = new Date(date.getTime());
-    d.setDate(d.getDate() + (3+(7-d.getDay())) % 7);
+    if (d.getDay() !== 3) {
+      d.setDate(d.getDate() + (3+(7-d.getDay())) % 7);
+    } else {
+      console.log('here?');
+      d.setDate(d.getDate() + (10+(14-d.getDay())) % 14);
+    }
     return d;
   }
 
