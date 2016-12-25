@@ -10,7 +10,6 @@ const Testimonial = ({testimonial, offset, locale}) => {
     backgroundImage: `url('${testimonial.image}')`
   };
 
-  console.log(offset);
     return (
       <div className={cx('testimonial')}>
         <Row middle={'sm'} end={'xs'}>

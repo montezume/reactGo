@@ -10,8 +10,6 @@ import VideoHero from '../components/VideoHero';
 import Testimonial from '../components/Testimonial';
 import DateSelector from '../components/DateSelector';
 import styles from '../css/components/landing';
-import videoUrl from '../videos/bg.mp4';
-import videoPoster from '../videos/bg.jpg';
 
 const cx = classNames.bind(styles);
 
@@ -45,8 +43,8 @@ class Landing extends Component {
       }
     ];
     const videos = [{
-      url: videoUrl,
-      poster: videoPoster
+      url: 'assets/videos/bg.mp4',
+      poster: 'assets/images/bg.jpg'
     }];
 
     const { user } = this.props;

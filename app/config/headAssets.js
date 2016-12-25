@@ -1,9 +1,9 @@
 /* Based on the template in Web Starter Kit :
 https://github.com/google/web-starter-kit/blob/master/app/index.html
 */
-import chromeFavicon from 'images/favicon.png';
-import appleFavicon from 'images/favicon.png';
-import msFavicon from 'images/favicon.png';
+import chromeFavicon from 'images/chrome-w192-precomposed.jpg';
+import appleFavicon from 'images/apple-w152-precomposed.jpg';
+import msFavicon from 'images/ms-w144-precomposed.jpg';
 import favicon from 'images/favicon.png';
 import { isDev } from 'config/app';
 
@@ -45,7 +45,7 @@ const linkAssets = () => {
     { "rel": "icon", "sizes": "192x192", "href": chromeFavicon },
     // Add to homescreen for Safari on IOS
     { "rel": "apple-touch-icon", "sizes": "152x152", "href": appleFavicon },
-    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css?family=Roboto+Condensed", "type": "text/css" },
+    { "rel": "stylesheet", "href": "https://fonts.googleapis.com/css?family=Roboto:100,200,400,700|Open+Sans", "type": "text/css" },
     { "rel": "stylesheet", "href": "/assets/styles/main.css" }
     // SEO: If your mobile URL is different from the desktop URL,
     // add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones
@@ -54,6 +54,6 @@ const linkAssets = () => {
   return isDev() ? links.filter(l => l.rel !== "stylesheet") : links;
 };
 
-export const title = "When is Wednesday";
+export const title = 'When is Wednesday';
 export const meta = metaAssets();
 export const link = linkAssets();

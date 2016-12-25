@@ -138,7 +138,7 @@ class VideoHero extends Component {
             muted={muted}
             autoPlay
             />
-      </div>
+        </div>
       );
     }
     if (this.state && this.state.mounted && videos.length === 1) {

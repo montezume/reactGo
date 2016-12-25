@@ -6,3 +6,5 @@ public
 compiled
 .swp
 .vscode
+.DS_Store
+app/.DS_Store

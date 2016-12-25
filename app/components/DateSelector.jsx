@@ -60,6 +60,7 @@ class DateSelector extends Component {
               <FormattedMessage id="landing.date.phrase" />
               <span> </span>
               <FormattedDate
+                autoOk
                 weekday="long"
                 year="numeric"
                 month="long"
