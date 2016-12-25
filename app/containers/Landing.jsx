@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Scroll, { Link, Element } from 'react-scroll';
 // import Paper from 'material-ui/Paper';
-import DatePicker from 'material-ui/DatePicker';
 import Paper from 'material-ui/Paper';
-import { FormattedDate, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
 import VideoHero from '../components/VideoHero';
 import Testimonial from '../components/Testimonial';
+import DateSelector from '../components/DateSelector';
 import styles from '../css/components/landing';
 import videoUrl from '../videos/bg.mp4';
 import videoPoster from '../videos/bg.jpg';
@@ -23,16 +23,24 @@ class Landing extends Component {
         name: 'John F',
         image: 'assets/images/testimonials/man.jpg',
         description: [
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          'I was very confused, and ended up missing an important team event because of an ambiguity of dates. Thanks to \'When Is Wednesday\', I never missed an event again!',
+          'J\'étais tellement confuser à cause de un collegue qui ne sait pas comment dire les dates. Après avoir utiliser \'When Is Wednesday\', j\'ai jamais eu une autre problème!'
         ]
       },
       {
         name: 'Marie',
         image: 'assets/images/testimonials/happy.jpg',
         description: [
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          'I can\'t stand it when people don\'t follow the proper stand for dates, so \'When Is Wednesday\' saved my life!',
+          'J\'haie quand le monde utilisent les dates d\'une facon incorrect, alors \'When Is Wednesday\' a sauvé ma vie!',
+        ]
+      },
+      {
+        name: 'Lauren H',
+        image: 'assets/images/testimonials/girl_upset.jpg',
+        description: [
+          'I was fired due to mistaking this wednesday for next wednesday. I just hope I remember to use \'When Is Wednesday\' during my next job.',
+          'J\'ai été viré en raison de la confusion ce mercredi pour mercredi prochain. J\'espère juste que je me souviens d\'utiliser \'When Is Wednesday\' lors de mon prochain emploi.'
         ]
       }
     ];
@@ -67,35 +75,29 @@ class Landing extends Component {
           </Grid>
         </VideoHero>
         <Element name="intro" id="intro" className={cx('section')}>
-          <Paper className={cx('paper')} zDepth={2}>
-            <h2><FormattedMessage id="landing.testimonials.title" /></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            {testimonials && testimonials.map((testimonial, index) => (
-              <Testimonial key={index} testimonial={testimonial} locale={user.locale === 'en' ? 0 : 1} offset={index % 2} />
-              )
-            )}
-          </Paper>
+          <Row center={'sm'}>
+            <Col xs={12} sm={10} md={9} lg={8}>
+              <Paper className={cx('paper')} zDepth={2}>
+                <h2><FormattedMessage id="landing.testimonials.title" /></h2>
+                <p><FormattedMessage id="landing.testimonials.description" /></p>
+                {testimonials && testimonials.map((testimonial, index) => (
+                  <Testimonial key={index} testimonial={testimonial} locale={user.locale === 'en' ? 0 : 1} offset={index % 2} />
+                  )
+                )}
+              </Paper>
+            </Col>
+          </Row>
         </Element>
-        <Element name="go">
-          <Grid className={cx('intro')}>
-            <Row center={'xs'}>
-              <Col xs={12} md={10} mdOffset={0} lg={10}>
+        <Element name="select-date" className={cx('section')}>
+          <Row center={'sm'}>
+            <Col xs={12} sm={10} md={9} lg={8}>
+              <Paper className={cx('paper')} zDepth={2}>
                 <h2><FormattedMessage id="landing.date.title" /></h2>
-                <DatePicker defaultDate={date} id="test" hintText="Portrait Dialog" />
-              </Col>
-
-              <Col xs={12}>
-                <span>The next Wednesday is ... </span>
-                <FormattedDate
-                  value={new Date(1459832991883)}
-                  year="numeric"
-                  month="long"
-                  weekday="long"
-                  day="2-digit"
-                />
-              </Col>
-            </Row>
-          </Grid>
+                <p><FormattedMessage id="landing.date.description" /></p>
+                <DateSelector />
+              </Paper>
+            </Col>
+          </Row>
         </Element>
       </div>
     );

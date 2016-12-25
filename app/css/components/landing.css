@@ -2,7 +2,7 @@
 @import url('../common/layout');
 
 .landing {
-
+  padding-bottom: 1em;
 }
 
 .landing .video-hero {
@@ -77,12 +77,17 @@
 
 .landing .section {
   @apply --box;
-  margin-top: 1em;
+  padding-top: 2em;
+  padding-bottom: 1em;
   background-color: var(--colorWhite);
 }
 
 .landing .section .paper {
   @apply --box;
+}
+
+.landing .section p {
+  text-align: left;
 }
 
 .landing .section h2 {

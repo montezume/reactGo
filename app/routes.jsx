@@ -10,7 +10,7 @@ import { App, Landing } from './pages';
  */
 export default (store) => {
   const onboarding = (nextState, replace, callback) => {
-    const state = store.getState();
+    // const state = store.getState();
     // console.log('here', state);
     callback();
   };

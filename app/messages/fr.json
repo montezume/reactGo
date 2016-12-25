@@ -4,6 +4,9 @@
   "landing.header.leader": "Êtes vous tanner de manquer le karaoke à cause d'une confusion de dates?",
   "landing.header.title": "Mercredi est quand?",
   "landing.date.title": "Choissez votre date",
+  "landing.date.description": "Utilisez l'outil ci-dessous pour choisir une date, et notre algorithme spécial, étonnant déterminera le mercredi prochain!",
   "landing.date.phrase": "Le prochain mercredi est",
-  "landing.testimonials.title": "Recommandation"
+  "landing.testimonials.title": "Recommandation",
+  "landing.testimonials.description": "Consultez tous les témoignages de nos utilisateurs satisfaits! Si vous vous trompez sur les dates, alors Quand est mercredi sauvera votre vie!",
+  "footer.createdBy": "Cette site a été créer par Malcolm"
 }

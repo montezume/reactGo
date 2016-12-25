@@ -1,15 +1,16 @@
 @import url('../common/colors');
 
 .testimonial {
-  padding: 2em 0;
+  padding: 0.5em 0;
   background-color: var(--colorWhite);
+  text-align: left;
 }
 
 .testimonial .user-image .user-icon {
   display: relative;
   margin: 0 auto;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   max-width: 100%;
   background-size: contain;
   border-radius: 50%;

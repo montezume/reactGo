@@ -1,0 +1,9 @@
+.date {
+  text-align: left;
+  padding-bottom: 1em;
+}
+
+.date .next {
+  font-size: 1.5rem;
+  text-align: center;
+}

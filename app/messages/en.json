@@ -4,6 +4,9 @@
   "landing.header.leader": "Are you sick of showing up to karaoke on the wrong day?",
   "landing.header.title": "When is Wednesday?",
   "landing.date.title": "Select your date",
-  "landing.date.phrase": "The next wednesday is",
-  "landing.testimonials.title": "Testimonials"
+  "landing.date.description": "Use the tool below to choose a date, and our special, amazing algorithm will determine the next wednesday!",
+  "landing.date.phrase": "The next Wednesday is",
+  "landing.testimonials.title": "Testimonials",
+  "landing.testimonials.description": "Check out all of the testimonials from our satisfied users! If you are wrong about dates, then When is Wednesday will save your life!",
+  "footer.createdBy": "This site was made by Malcolm"
 }

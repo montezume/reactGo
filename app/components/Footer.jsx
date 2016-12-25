@@ -19,6 +19,7 @@ const Footer = () => (
               <polyline points="25,30 45,50 65,30" strokeWidth="3" fill="none" />
             </svg>
           </div>
+          <p><FormattedMessage id="footer.createdBy" /></p>
         </Col>
       </Row>
     </Grid>
