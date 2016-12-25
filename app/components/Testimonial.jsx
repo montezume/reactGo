@@ -10,34 +10,18 @@ const Testimonial = ({testimonial, offset, locale}) => {
     backgroundImage: `url('${testimonial.image}')`
   };
 
-  if (!offset) {
+  console.log(offset);
     return (
       <div className={cx('testimonial')}>
-        <Row middle={'sm'}>
-          <Col xs={12} sm={6} lg={4}>
+        <Row middle={'sm'} end={'xs'}>
+          <Col xs={12} sm={6} lg={4} className={cx({first: offset === 1})}>
             <div className={cx('user-image')}>
               <span>{testimonial.name}</span>
               <div className={cx('user-icon')} style={style} />
             </div>
           </Col>
-          <Col xs={12} sm={6} lg={8}>
+          <Col xs={12} sm={6} lg={8} className={cx({second: offset === 0})}>
             <p>{testimonial.description[locale]}</p>
-          </Col>
-        </Row>
-      </div>
-    );
-    }
-    return (
-      <div className={cx('testimonial')}>
-        <Row middle={'sm'}>
-          <Col xs={12} sm={6} lg={8}>
-            <p>{testimonial.description[locale]}</p>
-          </Col>
-          <Col xs={12} sm={6} lg={4}>
-            <div className={cx('user-image')}>
-              <span>{testimonial.name}</span>
-              <div className={cx('user-icon')} style={style} />
-            </div>
           </Col>
         </Row>
       </div>

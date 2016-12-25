@@ -24,7 +24,6 @@ class DateSelector extends Component {
     if (d.getDay() !== 3) {
       d.setDate(d.getDate() + (3+(7-d.getDay())) % 7);
     } else {
-      console.log('here?');
       d.setDate(d.getDate() + (10+(14-d.getDay())) % 14);
     }
     return d;
@@ -44,24 +43,30 @@ class DateSelector extends Component {
     const { messages } = this.props.intl;
     return (
       <div className={cx('date')}>
-        <Row center={'xs'}>
-          <DatePicker
-            id="my-datepicker"
-            onChange={this.selectDate}
-            floatingLabelText={messages['landing.date.title']}
-            defaultDate={dateSelected}
-          />
-          <p className={cx('next')}>
-            <FormattedMessage id="landing.date.phrase" />
-            <span> </span>
-            <FormattedDate
-              weekday="long"
-              year="numeric"
-              month="long"
-              day="2-digit"
-              value={nextWednesday}
-              />
-          </p>
+        <Row middle={'sm'} center={'xs'}>
+          <Col xs={12} sm={4}>
+            <DatePicker
+              id="my-datepicker"
+              onChange={this.selectDate}
+              style={{width: '100%', margin: '0 0.75rem'}}
+              textFieldStyle={{width: '100%'}}
+              floatingLabelText={messages['landing.date.title']}
+              defaultDate={dateSelected}
+            />
+          </Col>
+          <Col xs={12} sm={8}>
+            <p className={cx('next')}>
+              <FormattedMessage id="landing.date.phrase" />
+              <span> </span>
+              <FormattedDate
+                weekday="long"
+                year="numeric"
+                month="long"
+                day="2-digit"
+                value={nextWednesday}
+                />
+            </p>
+          </Col>
         </Row>
       </div>
     );

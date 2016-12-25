@@ -23,3 +23,15 @@
   padding-bottom: 1em;
   text-align: center;
 }
+
+.testimonial .first {
+  @media (min-width: 768px) {
+    order: 1;
+  }
+}
+
+.testimonial .second {
+  @media (min-width: 768px) {
+    order: 2;
+  }
+}
