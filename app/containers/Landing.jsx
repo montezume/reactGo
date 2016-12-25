@@ -92,7 +92,7 @@ class Landing extends Component {
               <Paper className={cx('paper')} zDepth={2}>
                 <h2><FormattedMessage id="landing.date.title" /></h2>
                 <p><FormattedMessage id="landing.date.description" /></p>
-                <DateSelector />
+                <DateSelector locale={user.locale} />
               </Paper>
             </Col>
           </Row>
