@@ -34,6 +34,7 @@ const metaAssets = () => {
     { "name": "apple-mobile-web-app-title", "content": "reactGo" },
     { "property": "og:url", "content": 'http://whenisnextwednesday.com'},
     { "property": "og:title", "content": 'When Is Next Wednesday?'},
+    { "property": "og:description", "content": 'A handy web application for determining when the correct next wednesday is, and winning arguments at work.'},
     { "property": "og:image", "content": 'http://whenisnextwednesday.com/assets/images/testimonials/girl_upset.jpg'},
     // Tile icon for Win8 (144x144 + tile color)
     { "name": "msapplication-TileImage", "content": msFavicon },
