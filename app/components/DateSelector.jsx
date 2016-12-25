@@ -48,6 +48,7 @@ class DateSelector extends Component {
             <DatePicker
               id="my-datepicker"
               onChange={this.selectDate}
+              firstDayOfWeek={0}
               style={{width: '100%', margin: '0 0.75rem'}}
               textFieldStyle={{width: '100%'}}
               floatingLabelText={messages['landing.date.title']}
